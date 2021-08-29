@@ -71,11 +71,11 @@ cases_and_deaths <- confirmed_yr_mth %>%
 
 The dataset is sourced from the coronavirus package, which is either installed from the CRAN, or is installed directly from GitHub (github.com/RamiKrispin/coronavirus). In this case, I have installed the package from the CRAN. The raw data in the package is pulled from the Johns Hopkins University Centre for Systems Science and Engineering Coronavirus repository. 
 
-The dataset contains data on COVID-19 confirmed cases, deaths and recoveries in each country, from January 22 2020, to 27 May 2021. It also contains the latitude and longitude for each country. As I am only focusing on Panama, I can forego a description of the country, latitude and longitude variables. 
+The dataset contains data on COVID-19 confirmed cases, deaths and recoveries in each country, from January 22 2020, to 27 August 2021. It also contains the latitude and longitude for each country. As I am only focusing on Panama, I can forego a description of the country, latitude and longitude variables. 
 
 The Panama COVID-19 data features three important variables - date, type and cases. 
 
-- The variable 'date' is a date variable that contains each date, from 22 January 2020, to 27 May 2021, in ymd format. 
+- The variable 'date' is a date variable that contains each date, from 22 January 2020, to 27 August 2021, in ymd format. 
 
 - The variable 'type' is a character variable that contains three levels - 'confirmed', 'death' and 'recovered'. 'Confirmed' refers to total cases on any given day, 'death' refers to total deaths on any given day, and 'recovered' refers to the total number of recovered cases reported on any given day. 
 
