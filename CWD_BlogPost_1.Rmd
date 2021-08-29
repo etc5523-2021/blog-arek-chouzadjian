@@ -1,0 +1,15 @@
+---
+title: "CWD_BlogPost_1"
+author: "Arek Chouzadjian"
+date: "29/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(coronavirus)
+```
