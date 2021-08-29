@@ -41,7 +41,30 @@ confirmed_yr_mth <- panama_confirmed %>%
 
 # Deaths 
 
+```{r}
+panama_deaths <- panama %>%
+  filter(type == "death")
+```
 
+```{r}
+deaths_yr_mth <- panama_deaths %>%
+  mutate(Year = year(date), Month = month(date, label = TRUE)) %>%
+  group_by(Year, Month) %>%
+  tally(cases) %>%
+  rename(Deaths = n)
+```
+
+# Death Rate 
+
+```{r}
+cases_and_deaths <- confirmed_yr_mth %>%
+  left_join(deaths_yr_mth) %>%
+  mutate(Death_Rate = (Deaths/Cases)*100) %>%
+  filter(Cases != 0) %>%
+  rename("Death Rate (%)" = Death_Rate)
+```
+
+*First table to use - table of cases, deaths, and the death rate, by month (Mar 2020 - May 2021). 
 
 
 
