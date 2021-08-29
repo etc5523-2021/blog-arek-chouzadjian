@@ -2043,6 +2043,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
   <link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
   <script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2119,55 +2121,170 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h1 id="data-description">Data description</h1>
-<p>The dataset is sourced from the coronavirus package, which is either installed from the CRAN, or is installed directly from GitHub (github.com/RamiKrispin/coronavirus). In this case, I have installed the package from the CRAN. The raw data in the package is pulled from the Johns Hopkins University Centre for Systems Science and Engineering Coronavirus repository.</p>
-<p>The dataset contains data on COVID-19 confirmed cases, deaths and recoveries in each country, from January 22 2020, to 27 May 2021. It also contains the latitude and longitude for each country. As I am only focusing on Panama, I can forego a description of the country, latitude and longitude variables.</p>
+<h1 id="blog-post-1-covid-19-pandemic-in-panama">Blog Post 1: COVID-19 pandemic in Panama</h1>
+<p>This blog post focuses on the COVID-19 pandemic in Panama. The following analysis focuses on two aspects of the pandemic:</p>
+<ol type="1">
+<li><p>How cases and deaths in Panama have fluctuated from month to month.</p></li>
+<li><p>How the Death Rate from COVID-19 in Panama has fluctuated from month to month, and the implications that measure has for health system capability, and vaccine coverage/efficacy.</p></li>
+</ol>
+<h2 id="data-description">Data description</h2>
+<p>The dataset is sourced from the coronavirus package, which is either installed from the CRAN, or is installed directly from GitHub (github.com/RamiKrispin/coronavirus). In this case, I have installed the package from GitHub directly, so as to access the most recent data. The raw data in the package is pulled from the Johns Hopkins University Centre for Systems Science and Engineering Coronavirus repository.</p>
+<p>The dataset contains data on COVID-19 confirmed cases, deaths and recoveries in each country, from January 22 2020, to 27 August 2021. It also contains the latitude and longitude for each country. As I am only focusing on Panama, I can forego a description of the country, latitude and longitude variables.</p>
 <p>The Panama COVID-19 data features three important variables - date, type and cases.</p>
 <ul>
-<li><p>The variable ‘date’ is a date variable that contains each date, from 22 January 2020, to 27 May 2021, in ymd format.</p></li>
+<li><p>The variable ‘date’ is a date variable that contains each date, from 22 January 2020, to 27 August 2021, in ymd format.</p></li>
 <li><p>The variable ‘type’ is a character variable that contains three levels - ‘confirmed’, ‘death’ and ‘recovered’. ‘Confirmed’ refers to total cases on any given day, ‘death’ refers to total deaths on any given day, and ‘recovered’ refers to the total number of recovered cases reported on any given day.</p></li>
 <li><p>The variable ‘cases’ is a numeric variable that contains the number of confirmed cases, deaths or recoveries for each day.</p></li>
 </ul>
 <p>The dataset that is downloaded through the coronavirus package is in a largely tidy format, so not much data wrangling is required. It is very easy to use.</p>
-<h1 id="monthly-confirmed-cases-and-deaths-and-the-monthly-death-rate">Monthly confirmed cases and deaths, and the monthly death rate:</h1>
+<h2 id="monthly-confirmed-cases-deaths-and-the-monthly-death-rate">Monthly confirmed cases, deaths, and the monthly death rate:</h2>
 <p>The first table included in this post is an interactive table, created using the <code>DT</code> package, that features confirmed cases of, and deaths from, COVID-19 in Panama. It also contains a calculation of the Death Rate per month, which is just the number of deaths per months divided by the number of cases, multiplied by 100.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-c468a70abb9054322a7f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c468a70abb9054322a7f">{"x":{"filter":"none","caption":"<caption>Table of Monthly Confirmed Cases, Deaths and Death Rate<\/caption>","data":[[2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021],["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],[1181,5351,6931,20087,31706,27726,19613,21003,32208,80984,73589,20536,14136,9525,13521,25681,31877,19872],[30,158,148,295,790,581,370,328,379,943,1248,575,269,118,139,174,278,216],[2.54022015241321,2.95271911792188,2.13533400663685,1.46861153980186,2.49164196051221,2.0955060232273,1.88650384948758,1.56168166452412,1.1767262791853,1.16442754124271,1.69590563807091,2.79996104402026,1.9029428409734,1.23884514435696,1.028030471119,0.677543709357112,0.87210214261066,1.08695652173913]],"container":"<table class=\"cell-border hover\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Cases<\/th>\n      <th>Deaths<\/th>\n      <th>Death Rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[0,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6d3955a9a5c24b98a7fa" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d3955a9a5c24b98a7fa">{"x":{"filter":"none","caption":"<caption>Table of Monthly Confirmed Cases, Deaths and Death Rate<\/caption>","data":[[2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021],["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],[1181,5351,6931,20087,31706,27726,19613,21003,32208,80984,73589,20536,14136,9525,13521,25681,31877,19872],[30,158,148,295,790,581,370,328,379,943,1248,575,269,118,139,174,278,216],[2.54022015241321,2.95271911792188,2.13533400663685,1.46861153980186,2.49164196051221,2.0955060232273,1.88650384948758,1.56168166452412,1.1767262791853,1.16442754124271,1.69590563807091,2.79996104402026,1.9029428409734,1.23884514435696,1.028030471119,0.677543709357112,0.87210214261066,1.08695652173913]],"container":"<table class=\"cell-border hover\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Cases<\/th>\n      <th>Deaths<\/th>\n      <th>Death Rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[0,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>The Death Rate variable I have included is the same as the Case Fatality Rate (CFR) measure. The reason why I have included the Death Rate is that it provides a measure of the efficacy of two things:</p>
 <ol type="1">
-<li><p>Level of testing and ability to find cases - The Infection Fatality Rate (IFR) of COVID-19, which represents the number of people who are infected who die, is estimated to be between 1-2%. When the CFR is closer to the IFR, it indicates, generally speaking, that a country’s health system is better able to discover and record cases, through higher rates of testing.</p></li>
+<li><p>Level of testing and ability to find cases - The Infection Fatality Rate (IFR) of COVID-19, which represents the number of people who are infected who die, is estimated to be between 1-2% (Levin et al., 2020). When the CFR is closer to the IFR, it indicates, generally speaking, that a country’s health system is better able to discover and record cases, through higher rates of testing.</p></li>
 <li><p>Coverage and efficacy of vaccination - In countries with high full vaccination rates, the CFR has dropped significantly. Therefore, the CFR acts as an observable indication of both vaccine efficacy, and vaccine coverage.</p></li>
 </ol>
 <p>Disclaimer - a more accurate ‘rolling’ CFR would have deaths lag cases by a couple of weeks, so the CFR I have included is more of a rough measure of how the CFR is changing month to month.</p>
-<h2 id="findings">Findings</h2>
-<h3 id="stages-of-the-pandemic">Stages of the pandemic</h3>
+<h3 id="findings">Findings</h3>
+<h4 id="stages-of-the-pandemic">Stages of the pandemic</h4>
 <p>The number of cases and deaths in Panama starts off relatively slowly, peaking initially in July 2020 at just under 32,000 cases and 800 deaths per month (approx. 1,000 cases and 25 deaths per day). This initial peak occurred noticeably later than countries in Europe and North America, likely due to the virus taking longer to seed in countries less connected to global trade/commerce.</p>
-<p>Cases and deaths then dipped slightly for a few months, but surged massively in December 2020 - January 2021. This represents the main peak of cases and deaths in Panama. In this two month period, nearly 155,000 cases were reported, and just under 2,200 people died. For a country with a pre-pandemic population of around 4.2 million, this is a huge number in such a short space of time.</p>
+<p>Cases and deaths then dipped slightly for a few months, but surged massively in December 2020 - January 2021. This represents the main peak of cases and deaths in Panama. In this two month period, nearly 155,000 cases were reported, and just under 2,200 people died. For a country with a pre-pandemic population of around 4.2 million (United Nations, 2019), this is a huge number in such a short space of time.</p>
 <p>Case numbers then dropped markedly, and have followed a similar pattern to what happened in mid-2020 - cases peaked in July 2021 at a very similar level to July 2020.</p>
-<h3 id="analysis-of-the-death-rate">Analysis of the Death Rate</h3>
+<h4 id="analysis-of-the-death-rate">Analysis of the Death Rate</h4>
 <p>Generally speaking, the Death Rate in Panama is quite close to the estimated IFR of COVID-19, so the country’s health system has been quite effective at finding and recording cases. The Death Rate was noticeably higher at the beginning of the pandemic, likely due to lower testing, and less experience in treating the disease. The spike in the Death Rate in February 2021 is most likely due to some deaths associated with January’s case spike occurring in February, thereby inflating the Death Rate.</p>
-<p>It is clear to see how the Death Rate has dropped in Panama since May 2021. For instance, July 2021 saw a similar number of cases to July 2020, but only 35% the number of deaths. As of late August, over 60% of Panama’s population have received at least one dose of vaccine, and 30% have been fully vaccinated (Our World in Data). Vaccinations are clearly pushing down the Death Rate, but Panama has a fair way to go until it’s population has a high level of protection.</p>
-<h1 id="summary-statistics-table">Summary Statistics Table</h1>
-<p>The following table is a table of summary statistics, built using the package <code>stargazer</code>.</p>
+<p>It is clear to see how the Death Rate has dropped in Panama since May 2021. For instance, July 2021 saw a similar number of cases to July 2020, but only 35% the number of deaths. As of late August, over 60% of Panama’s population have received at least one dose of vaccine, and 30% have been fully vaccinated (Ritchie et al., 2021). Vaccinations are clearly pushing down the Death Rate, but Panama has a fair way to go until it’s population has a high level of protection.</p>
+<h2 id="summary-statistics-table">Summary Statistics Table</h2>
+<p>The following table is a table of summary statistics, built using the package <code>vtable</code>. I have included summary statistics for the variables Cases, Deaths, and Death Rate (%).</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sun, Aug 29, 2021 - 18:52:31
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
-Statistic &amp; \multicolumn{1}{c}{N} &amp; \multicolumn{1}{c}{Mean} &amp; \multicolumn{1}{c}{St. Dev.} &amp; \multicolumn{1}{c}{Min} &amp; \multicolumn{1}{c}{Pctl(25)} &amp; \multicolumn{1}{c}{Pctl(75)} &amp; \multicolumn{1}{c}{Max} \\ 
-\hline \\[-1.8ex] 
-\hline \\[-1.8ex] 
-\end{tabular} 
-\end{table} </code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-11">Table 1: </span>Summary Statistics
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Cases
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+25307.056
+</td>
+<td style="text-align:left;">
+21046.25
+</td>
+<td style="text-align:left;">
+1181
+</td>
+<td style="text-align:left;">
+13674.75
+</td>
+<td style="text-align:left;">
+30711
+</td>
+<td style="text-align:left;">
+80984
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deaths
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+391.056
+</td>
+<td style="text-align:left;">
+322.594
+</td>
+<td style="text-align:left;">
+30
+</td>
+<td style="text-align:left;">
+162
+</td>
+<td style="text-align:left;">
+526
+</td>
+<td style="text-align:left;">
+1248
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Death Rate (%)
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+1.71
+</td>
+<td style="text-align:left;">
+0.683
+</td>
+<td style="text-align:left;">
+0.678
+</td>
+<td style="text-align:left;">
+1.168
+</td>
+<td style="text-align:left;">
+2.125
+</td>
+<td style="text-align:left;">
+2.953
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>The summary statistics table shows that the mean number of cases per month during the COVID-19 pandemic in Panama is just over 25,000, and the mean number of deaths per month is around 390. The mean Death Rate per month during the pandemic is around 1.7%.</p>
+<h2 id="references">References</h2>
+<p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
+<p>Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <a href="https://www.jstatsoft.org/v40/i03/" class="uri">https://www.jstatsoft.org/v40/i03/</a>.</p>
+<p>Yihui Xie, Joe Cheng and Xianying Tan (2021). DT: A Wrapper of the JavaScript Library ‘DataTables’. R package version 0.18. <a href="https://CRAN.R-project.org/package=DT" class="uri">https://CRAN.R-project.org/package=DT</a></p>
+<p>Nick Huntington-Klein (2021). vtable: Variable Table for Variable Documentation. R package version 1.3.3. <a href="https://CRAN.R-project.org/package=vtable" class="uri">https://CRAN.R-project.org/package=vtable</a></p>
+<p>Rami Krispin and Jarrett Byrnes (2021). coronavirus: The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset. R package version 0.3.22. <a href="https://github.com/RamiKrispin/coronavirus" class="uri">https://github.com/RamiKrispin/coronavirus</a></p>
+<p>Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - “Coronavirus Pandemic (COVID-19)”. Published online at OurWorldInData.org. Retrieved from: ‘<a href="https://ourworldindata.org/coronavirus" class="uri">https://ourworldindata.org/coronavirus</a>’ [Online Resource]</p>
+<p>United Nations, Department of Economic and Social Affairs, Population Division (2019). World Population Prospects 2019, Online Edition. Rev. 1.</p>
+<p>Levin AT, Hanage WP, Owusu-Boaitey N, et al. Assessing the age specificity of infection fatality rates for COVID-19: Systematic review, meta-analysis, and public policy implications. Euro J Epidemiol. 2020;35(12):1123–1135.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
