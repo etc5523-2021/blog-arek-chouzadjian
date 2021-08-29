@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(coronavirus)
 library(lubridate)
+library(DT)
+library(stargazer)
 ```
 
 ```{r}
@@ -23,8 +25,6 @@ data(coronavirus)
 panama <- coronavirus %>%
   filter(country == "Panama")
 ```
-
-# Cases
 
 ```{r}
 panama_confirmed <- panama %>%
@@ -39,8 +39,6 @@ confirmed_yr_mth <- panama_confirmed %>%
   rename(Cases = n)
 ```
 
-# Deaths 
-
 ```{r}
 panama_deaths <- panama %>%
   filter(type == "death")
@@ -53,8 +51,6 @@ deaths_yr_mth <- panama_deaths %>%
   tally(cases) %>%
   rename(Deaths = n)
 ```
-
-# Death Rate 
 
 ```{r}
 cases_and_deaths <- confirmed_yr_mth %>%
@@ -80,7 +76,9 @@ The Panama COVID-19 data features three important variables - date, type and cas
 
 The dataset that is downloaded through the coronavirus package is in a largely tidy format, so not much data wrangling is required. It is very easy to use. 
 
-*First table to use - table of cases, deaths, and the death rate, by month (Mar 2020 - May 2021). This table needs to be interactive - use dt() package.  
+# Monthly confirmed cases and deaths, and the monthly death rate: 
+
+*First table to use - table of cases, deaths, and the death rate, by month (Mar 2020 - May 2021). This table needs to be interactive - use DT() package.  
 
 *Second table will be a summary statistics table - use stargazer(). 
 
