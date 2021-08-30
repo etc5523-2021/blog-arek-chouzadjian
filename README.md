@@ -2,7 +2,7 @@
 
 
 This is the blog of Arek Chouzadjian.
-The URL of this blog is [FILL].
+The URL of this blog is https://etc5523-2021.github.io/blog-arek-chouzadjian/.
 
 ## Blog Post 1
 
