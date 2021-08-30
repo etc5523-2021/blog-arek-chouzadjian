@@ -66,21 +66,21 @@ cases_and_deaths <- confirmed_yr_mth %>%
   filter(Cases != 0) %>%
   rename("Death Rate (%)" = Death_Rate)
 ```
-
+<div style="background-color:azure">
 # Blog Post 1: COVID-19 pandemic in Panama
 
 This blog post focuses on the COVID-19 pandemic in Panama. The following analysis focuses on two aspects of the pandemic:
 
 1. How cases and deaths in Panama have fluctuated from month to month. 
 
-2. How the Death Rate from COVID-19 in Panama has fluctuated from month to month, and the implications that measure has for health system capability, and vaccine coverage/efficacy. 
+2. How the Death Rate from COVID-19 in Panama has fluctuated from month to month, and the implications that measure has for health system capability, and vaccine coverage/efficacy.</div>
 
+<div style="background-color:aliceblue">
 ## Data description
 
 The dataset is sourced from the coronavirus package, which is either installed from the CRAN, or is installed directly from GitHub (github.com/RamiKrispin/coronavirus). In this case, I have installed the package from GitHub directly, so as to access the most recent data. The raw data in the package is pulled from the Johns Hopkins University Centre for Systems Science and Engineering Coronavirus repository. 
 
 The dataset contains data on COVID-19 confirmed cases, deaths and recoveries in each country, from January 22 2020, to 27 August 2021. It also contains the latitude and longitude for each country. As I am only focusing on Panama, I can forego a description of the country, latitude and longitude variables. 
-
 The Panama COVID-19 data features three important variables - date, type and cases. 
 
 - The variable 'date' is a date variable that contains each date, from 22 January 2020, to 27 August 2021, in ymd format. 
@@ -89,8 +89,9 @@ The Panama COVID-19 data features three important variables - date, type and cas
 
 - The variable 'cases' is a numeric variable that contains the number of confirmed cases, deaths or recoveries for each day. 
 
-The dataset that is downloaded through the coronavirus package is in a largely tidy format, so not much data wrangling is required. It is very easy to use. 
+The dataset that is downloaded through the coronavirus package is in a largely tidy format, so not much data wrangling is required. It is very easy to use.</div>
 
+<div style = "background-color:seashell"> 
 ## Monthly confirmed cases, deaths, and the monthly death rate:
 
 The first table included in this post is an interactive table, created using the `DT` package, that features confirmed cases of, and deaths from, COVID-19 in Panama. It also contains a calculation of the Death Rate per month, which is just the number of deaths per months divided by the number of cases, multiplied by 100.  
@@ -122,8 +123,9 @@ Case numbers then dropped markedly, and have followed a similar pattern to what 
 
 Generally speaking, the Death Rate in Panama is quite close to the estimated IFR of COVID-19, so the country's health system has been quite effective at finding and recording cases. The Death Rate was noticeably higher at the beginning of the pandemic, likely due to lower testing, and less experience in treating the disease. The spike in the Death Rate in February 2021 is most likely due to some deaths associated with January's case spike occurring in February, thereby inflating the Death Rate. 
 
-It is clear to see how the Death Rate has dropped in Panama since May 2021. For instance, July 2021 saw a similar number of cases to July 2020, but only 35% the number of deaths. As of late August, over 60% of Panama's population have received at least one dose of vaccine, and 30% have been fully vaccinated (Ritchie et al., 2021). Vaccinations are clearly pushing down the Death Rate, but Panama has a fair way to go until it's population has a high level of protection.  
+It is clear to see how the Death Rate has dropped in Panama since May 2021. For instance, July 2021 saw a similar number of cases to July 2020, but only 35% the number of deaths. As of late August, over 60% of Panama's population have received at least one dose of vaccine, and 30% have been fully vaccinated (Ritchie et al., 2021). Vaccinations are clearly pushing down the Death Rate, but Panama has a fair way to go until it's population has a high level of protection.</div>
 
+<div style="background-color:oldlace">
 ## Summary Statistics Table
 
 The following table is a table of summary statistics, built using the package `vtable`. I have included summary statistics for the variables Cases, Deaths, and Death Rate (%).  
@@ -132,8 +134,9 @@ The following table is a table of summary statistics, built using the package `v
 st(cases_and_deaths, vars = c('Cases', 'Deaths', 'Death Rate (%)'))
 ```
 
-The summary statistics table shows that the mean number of cases per month during the COVID-19 pandemic in Panama is just over 25,000, and the mean number of deaths per month is around 390. The mean Death Rate per month during the pandemic is around 1.7%. 
+The summary statistics table shows that the mean number of cases per month during the COVID-19 pandemic in Panama is just over 25,000, and the mean number of deaths per month is around 390. The mean Death Rate per month during the pandemic is around 1.7%.</div>
 
+<div style="background-color:mintcream">
 ## References 
 
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43),
@@ -155,7 +158,7 @@ Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Gia
 
 United Nations, Department of Economic and Social Affairs, Population Division (2019). World Population Prospects 2019, Online Edition. Rev. 1.
 
-Levin AT, Hanage WP, Owusu-Boaitey N, et al. Assessing the age specificity of infection fatality rates for COVID-19: Systematic review, meta-analysis, and public policy implications. Euro J Epidemiol. 2020;35(12):1123–1135.
+Levin AT, Hanage WP, Owusu-Boaitey N, et al. Assessing the age specificity of infection fatality rates for COVID-19: Systematic review, meta-analysis, and public policy implications. Euro J Epidemiol. 2020;35(12):1123–1135.</div>
 
 
 
