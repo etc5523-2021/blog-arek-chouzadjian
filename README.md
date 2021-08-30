@@ -10,7 +10,7 @@ This assessment is due Fri Sep 3 2021 11.55PM AEST.
 
 My selected country is Panama.
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in index.html
 
 - [ ] Selected a country
 - [ ] Website with R markdown 
