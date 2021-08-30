@@ -2,7 +2,7 @@ name: "distill_web"
 title: "Arek Chouzadjian Blog"
 description: |
   Arek Chouzadjian Blog
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
