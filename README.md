@@ -26,9 +26,9 @@ The relevant blog post for this assessment is in index.html
 
 This assessment is due Fri Sep 17 2021 11.55PM AEST.
 
-My selected country is [FILL].
+My selected country is Spain.
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in Spain.html
 
 - [ ] Selected a new country
 - [ ] Data Story 1
