@@ -2,7 +2,7 @@
 
 
 This is the blog of Arek Chouzadjian.
-The URL of this blog is [FILL].
+The URL of this blog is https://etc5523-2021.github.io/blog-arek-chouzadjian/.
 
 ## Blog Post 1
 
@@ -26,9 +26,9 @@ The relevant blog post for this assessment is in index.html
 
 This assessment is due Fri Sep 17 2021 11.55PM AEST.
 
-My selected country is [FILL].
+My selected country is Spain.
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in index2.html
 
 - [ ] Selected a new country
 - [ ] Data Story 1
